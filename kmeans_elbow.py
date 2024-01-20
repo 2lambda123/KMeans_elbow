@@ -24,9 +24,10 @@ def elbow_plot(data, maxK=10, seed_centroids=None):
             ).fit(data)
             data["clusters"] = kmeans.labels_
         else:
-            kmeans = KMeans(n_clusters=k, max_iter=300, n_init=100, random_state=0).fit(
-                data
-            )
+            kmeans = KMeans(n_clusters=k,
+                            max_iter=300,
+                            n_init=100,
+                            random_state=0).fit(data)
             data["clusters"] = kmeans.labels_
         # Inertia: Sum of distances of samples to their closest cluster center
         sse[k] = kmeans.inertia_
