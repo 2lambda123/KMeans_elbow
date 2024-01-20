@@ -4,10 +4,11 @@ from sklearn.cluster import KMeans
 
 def elbow_plot(data, maxK=10, seed_centroids=None):
     """
-    parameters:
-    - data: pandas DataFrame (data to be fitted)
-    - maxK (default = 10): integer (maximum number of clusters with which to run k-means)
-    - seed_centroids (default = None ): float (initial value of centroids for k-means)
+
+    :param data: pandas DataFrame
+    :param maxK: default
+    :param seed_centroids: default
+
     """
     sse = {}
     for k in range(1, maxK):
