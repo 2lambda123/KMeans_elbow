@@ -11,7 +11,7 @@ def elbow_plot(data, maxK=10, seed_centroids=None):
     """
     sse = {}
     for k in range(1, maxK):
-        print("k: ", k)
+        # Removed unnecessary print statement
         if seed_centroids is not None:
             seeds = seed_centroids.head(k)
             kmeans = KMeans(n_clusters=k, max_iter=500, n_init=100, random_state=0, init=np.reshape(seeds, (k,1))).fit(data)
