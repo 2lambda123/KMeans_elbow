@@ -14,10 +14,12 @@ def elbow_plot(data, maxK=10, seed_centroids=None):
         # Removed unnecessary print statement
         if seed_centroids is not None:
             seeds = seed_centroids.head(k)
-            kmeans = KMeans(n_clusters=k, max_iter=500, n_init=100, random_state=0, init=np.reshape(seeds, (k,1))).fit(data)
+            kmeans = KMeans(n_clusters=k, max_iter=500, n_init=100,
+                            random_state=0, init=np.reshape(seeds, (k, 1))).fit(data)
             data["clusters"] = kmeans.labels_
         else:
-            kmeans = KMeans(n_clusters=k, max_iter=300, n_init=100, random_state=0).fit(data)
+            kmeans = KMeans(n_clusters=k, max_iter=300,
+                            n_init=100, random_state=0).fit(data)
             data["clusters"] = kmeans.labels_
         # Inertia: Sum of distances of samples to their closest cluster center
         sse[k] = kmeans.inertia_
